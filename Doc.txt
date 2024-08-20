@@ -1,0 +1,117 @@
+Project Participants: Alexander Kaminsky, Risya Zevulun
+                  id:318244530        id:337775753
+Interpreter Documentation
+1. BNF Grammar
+The BNF (Backus-Naur Form) grammar describes the syntax of the language implemented by the interpreter. It includes basic constructs such as statements, expressions, loops, and function definitions.
+
+BNF Grammar included in the files.
+
+Language Features::
+Variables: Declared with let and assigned using =.
+
+Functions: Defined using def, with support for parameters and return values.
+
+Control Flow: Includes if, elif, else, for, and while constructs.
+
+Expressions: Support arithmetic, comparison, and logical operations.
+
+Lists: Basic list operations and indexing.
+
+Boolean Operations: Logical operators (and, or, not).
+
+Recursion: Supported in function definitions.
+
+Trade-offs and Limitations::
+Trade-offs:
+
+Simplicity vs. functionality: The language supports essential constructs but lacks advanced features such as classes and modules.
+
+Efficiency vs. clarity: Prioritizes ease of understanding over optimization.
+
+Limitations:
+Error Handling: Limited to basic syntax and runtime errors.
+Performance: May not be optimized for large-scale applications.
+Feature Set: Lacks support for more advanced features like exception handling and complex data structures.
+
+2. User Guide
+Running the Interpreter
+The interpreter supports two modes: interactive mode and full program execution mode.
+
+Interactive Mode
+Start the Interpreter: Run the interpreter script.
+
+Enter Commands: Type commands and press Enter to execute them immediately.
+
+View Output: Results of each command will be displayed on the console.
+
+Full Program Execution Mode
+Prepare a .lambda File: Create a file with the .lambda extension containing your program code.
+
+Run the Interpreter: Provide the filename as an argument to the interpreter script.
+
+RUN("example.lambda")
+
+View Output: The output will be displayed in the console.
+
+3. Design Decisions and Challenges
+Design Decisions
+Language Design: Focused on creating a minimalistic and readable language with essential features.
+
+Error Handling: Implemented custom error classes for detailed error reporting.
+
+Interpreter Structure: Modular design with distinct components for lexing, parsing, and interpreting.
+
+Challenges Faced
+Grammar Implementation: Defining and implementing a complete BNF grammar posed challenges in ensuring correctness and completeness.
+Error Reporting: Designing meaningful error messages and handling various error scenarios required extensive testing.
+Solutions Implemented
+Modular Code: Used modular code design to separate concerns and simplify debugging.
+Comprehensive Testing: Developed a test suite to cover a wide range of language features and edge cases.
+Detailed Documentation: Provided clear documentation to aid understanding and usage of the language and interpreter.
+4. Example Program
+Here’s a 30-line example demonstrating the use of the while loop and recursion, this
+one is available as example.lambda:
+
+# Function to calculate factorial using recursion
+FUN factorial(n)
+    IF n == 0 THEN RETURN 1
+    RETURN n * factorial(n - 1)
+END
+
+# Function to sum numbers using recursion
+FUN sum_up_to(n, acc)
+    IF n == 0 THEN RETURN acc
+    RETURN sum_up_to(n - 1, acc + n)
+END
+
+# Print the factorial of 5
+VAR result = factorial(5)
+PRINT(result)
+
+# Print the sum of numbers from 1 to 5
+VAR total = sum_up_to(5, 0)
+PRINT(total)
+
+# Demonstrating a while loop with recursion
+VAR i = 0
+
+WHILE i < 5 THEN
+    PRINT("Current value of i: ")
+    PRINT(i)
+    VAR result = factorial(i)
+    PRINT("Factorial of ")
+    PRINT(i)
+    PRINT(result)
+    VAR i = i + 1
+END
+
+5. Report on Design Decisions
+Design Decisions::
+Interpreter Architecture: Adopted a modular architecture separating lexer, parser, and interpreter components.
+
+Language Features: Selected a set of features that balance ease of use with practical functionality.
+
+Challenges and Solutions::
+Handling Syntax Errors: Created custom error classes for robust error handling and user-friendly messages.
+
+Testing: Ensured thorough testing with diverse examples to validate interpreter functionality.

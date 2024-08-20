@@ -1,0 +1,32 @@
+# Function to calculate factorial using recursion
+FUN factorial(n)
+    IF n == 0 THEN RETURN 1
+    RETURN n * factorial(n - 1)
+END
+
+# Function to sum numbers using recursion
+FUN sum_up_to(n, acc)
+    IF n == 0 THEN RETURN acc
+    RETURN sum_up_to(n - 1, acc + n)
+END
+
+# Print the factorial of 5
+VAR result = factorial(5)
+PRINT(result)
+
+# Print the sum of numbers from 1 to 5
+VAR total = sum_up_to(5, 0)
+PRINT(total)
+
+# Demonstrating a while loop with recursion
+VAR i = 0
+
+WHILE i < 5 THEN
+    PRINT("Current value of i: ")
+    PRINT(i)
+    VAR result = factorial(i)
+    PRINT("Factorial of ")
+    PRINT(i)
+    PRINT(result)
+    VAR i = i + 1
+END
